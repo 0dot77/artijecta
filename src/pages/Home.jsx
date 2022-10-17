@@ -2,12 +2,30 @@ import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 import styled from 'styled-components';
 import HomeModel from '../components/HomeModel';
-import { OrbitControls } from '@react-three/drei';
+import { Html, OrbitControls, useProgress } from '@react-three/drei';
 
 const HomeContainer = styled.main`
   width: 100%;
   height: 100vh;
+
+  .progress {
+    color: white;
+    font-size: 10rem;
+    text-align: center;
+  }
 `;
+
+const Loader = () => {
+  const { progress } = useProgress();
+  return (
+    <Html
+      className="progress"
+      center
+    >
+      {progress} % loaded
+    </Html>
+  );
+};
 
 export default function Home() {
   return (
@@ -26,7 +44,9 @@ export default function Home() {
             enableDamping={true}
           />
           <ambientLight />
-          <HomeModel />
+          <Suspense fallback={<Loader />}>
+            <HomeModel />
+          </Suspense>
         </Canvas>
       </Suspense>
     </HomeContainer>

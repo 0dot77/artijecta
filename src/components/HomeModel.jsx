@@ -1,12 +1,12 @@
 import { useGLTF } from '@react-three/drei';
-import model from '../assets/model/artijecta_model.glb?url';
+import model from '../assets/model/artijecta.glb?url';
 
 export default function HomeModel() {
   const gltf = useGLTF(model);
   return (
     <primitive
       object={gltf.scene}
-      scale={[0.5, 0.5, 0.5]}
+      scale={[2.5, 2.5, 2.5]}
     ></primitive>
   );
 }
