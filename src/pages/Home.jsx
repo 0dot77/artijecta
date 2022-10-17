@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import styled from 'styled-components';
 import HomeModel from '../components/HomeModel';
 import { Html, OrbitControls, useProgress } from '@react-three/drei';
@@ -16,7 +16,10 @@ const HomeContainer = styled.main`
 `;
 
 const Loader = () => {
-  const { progress } = useProgress();
+  const { active, progress } = useProgress();
+  useEffect(() => {
+    console.log(active, progress);
+  }, [active, progress]);
   return (
     <Html
       className="progress"
