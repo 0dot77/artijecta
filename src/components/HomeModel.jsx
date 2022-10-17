@@ -1,4 +1,5 @@
-import { useGLTF } from '@react-three/drei';
+import { Html, useGLTF, useProgress } from '@react-three/drei';
+import { Suspense } from 'react';
 import model from '../assets/model/artijecta.glb?url';
 
 export default function HomeModel() {
