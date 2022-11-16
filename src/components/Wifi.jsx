@@ -3,6 +3,7 @@ import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import { Suspense, useRef, useState } from 'react';
 import styled from 'styled-components';
 import wifis from '../data/wifis';
+import { useFrame } from '@react-three/fiber';
 
 const WifiDataContainer = styled.div`
   width: 100%;
@@ -43,9 +44,16 @@ const Cancel = styled.div`
 
 const Wifi = ({ pos, idx = 0 }) => {
   const [clicked, setClicked] = useState(false);
+  const circleRef = useRef();
+  // console.log(circleRef);
+  // useFrame(() => {
+  //   circleRef.current.rotation.x += 0.05;
+  // });
+
   return (
     <Suspense>
       <Sphere
+        ref={circleRef}
         position={pos}
         scale={[0.1, 0.1, 0.1]}
         onClick={() => setClicked((prev) => !prev)}
