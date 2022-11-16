@@ -14,7 +14,7 @@ const wifis = {
       ipAddress: '❠☒❠☒❠☒❠☒',
     },
     model: {
-      pos: [1, 0, -1],
+      pos: [0, 0, 0],
     },
   },
   1: {
@@ -32,7 +32,7 @@ const wifis = {
       ipAddress: '❠☒❠☒❠☒❠☒',
     },
     model: {
-      pos: [1, 0, 0],
+      pos: [7, 0, 1.5],
     },
   },
   2: {
@@ -50,7 +50,7 @@ const wifis = {
       ipAddress: '❠☒❠☒❠☒❠☒',
     },
     model: {
-      pos: [-1, 2, 1],
+      pos: [1, 0, 7],
     },
   },
   3: {
@@ -68,7 +68,7 @@ const wifis = {
       ipAddress: '❠☒❠☒❠☒❠☒',
     },
     model: {
-      pos: [1, 2, 1],
+      pos: [-5, 0, 0.5],
     },
   },
   4: {
@@ -86,7 +86,7 @@ const wifis = {
       ipAddress: '❠☒❠☒❠☒❠☒',
     },
     model: {
-      pos: [-2, 0, -2],
+      pos: [-7, 0, -6.5],
     },
   },
   5: {
@@ -104,7 +104,7 @@ const wifis = {
       ipAddress: '❠☒❠☒❠☒❠☒',
     },
     model: {
-      pos: [1, 3, -2],
+      pos: [4, 0, -5.7],
     },
   },
   6: {
@@ -122,7 +122,7 @@ const wifis = {
       ipAddress: '❠☒❠☒❠☒❠☒',
     },
     model: {
-      pos: [-2, -2, 1],
+      pos: [1.5, 0, -6.7],
     },
   },
   7: {
@@ -140,7 +140,7 @@ const wifis = {
       ipAddress: '❠☒❠☒❠☒❠☒',
     },
     model: {
-      pos: [0, 0, 0],
+      pos: [-0.5, 0, -9.5],
     },
   },
   8: {
@@ -158,7 +158,7 @@ const wifis = {
       ipAddress: '❠☒❠☒❠☒❠☒',
     },
     model: {
-      pos: [1, 0, 3],
+      pos: [9.5, 0, 3],
     },
   },
   9: {
@@ -176,7 +176,7 @@ const wifis = {
       ipAddress: '❠☒❠☒❠☒❠☒',
     },
     model: {
-      pos: [-1, -2, 0],
+      pos: [-2, 0, -4],
     },
   },
 };

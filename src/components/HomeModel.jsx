@@ -8,7 +8,7 @@ export default function HomeModel() {
   const ref = useRef();
 
   useFrame(() => {
-    ref.current.rotation.y += 0.005;
+    // ref.current.rotation.y += 0.005;
   });
   return (
     <primitive

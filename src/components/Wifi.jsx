@@ -50,7 +50,7 @@ const Wifi = ({ pos, idx = 0 }) => {
         scale={[0.1, 0.1, 0.1]}
         onClick={() => setClicked((prev) => !prev)}
       >
-        <meshBasicMaterial color="hotpink" />
+        <meshBasicMaterial color="rgba(255, 0, 240, 1)" />
       </Sphere>
       {clicked ? (
         <Html
