@@ -35,15 +35,10 @@ const Button = styled.button`
 const Cancel = styled.div`
   width: 1.5rem;
   height: 1.5rem;
-  margin: 0.25rem;
-  border-radius: 50%;
+  margin: 0.5rem;
   position: absolute;
-
-  svg {
-    &:hover {
-      stroke: #000000;
-    }
-  }
+  right: 0;
+  background: black;
 `;
 
 const Wifi = ({ pos, idx = 0 }) => {
@@ -71,17 +66,17 @@ const Wifi = ({ pos, idx = 0 }) => {
           <Cancel>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              fill="red"
+              fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
-              stroke="red"
+              stroke="white"
               className="w-6 h-6"
               onClick={() => setClicked(false)}
             >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                d="M6 18L18 6M6 6l12 12"
               />
             </svg>
           </Cancel>
