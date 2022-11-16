@@ -1,5 +1,6 @@
 import { Sphere, Html } from '@react-three/drei';
-import { Suspense, useState } from 'react';
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
+import { Suspense, useRef, useState } from 'react';
 import styled from 'styled-components';
 import wifis from '../data/wifis';
 

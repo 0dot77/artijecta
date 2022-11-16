@@ -1,14 +1,10 @@
 import { Canvas } from '@react-three/fiber';
 import styled from 'styled-components';
-import HomeModel from '../components/HomeModel';
 import { OrbitControls } from '@react-three/drei';
-import { EffectComposer, Selection, Select, Outline } from '@react-three/postprocessing';
-import { Glitch } from '@react-three/postprocessing';
-import { GlitchMode } from 'postprocessing';
 import Wifi from '../components/Wifi';
 import wifis from '../data/wifis';
 import Nav from '../components/Nav';
-
+import HomeModel from '../components/HomeModel';
 /**
  * - [x] 와이파이 위치 점 찍기 (10개)
  * - [x] 위치 점 클릭하면 팝업되는 창 만들고 정보 입력하기
