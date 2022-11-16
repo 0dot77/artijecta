@@ -1,16 +1,28 @@
 import { Canvas } from '@react-three/fiber';
 import styled from 'styled-components';
 import HomeModel from '../components/HomeModel';
-import { Loader, OrbitControls } from '@react-three/drei';
-import { EffectComposer } from '@react-three/postprocessing';
+import { OrbitControls } from '@react-three/drei';
+import { EffectComposer, Selection, Select, Outline } from '@react-three/postprocessing';
 import { Glitch } from '@react-three/postprocessing';
 import { GlitchMode } from 'postprocessing';
+import Wifi from '../components/Wifi';
+import wifis from '../data/wifis';
+import Nav from '../components/Nav';
+
+/**
+ * - [x] 와이파이 위치 점 찍기 (10개)
+ * - [ ] 위치 점 클릭하면 팝업되는 창 만들고 정보 입력하기
+ * - [x] 네비게이션 만들기
+ * - [ ] 앱 연결 페이지
+ * - [ ] 스프레드 시트 변환하는 방법? 알아보고 페이지로 만들기
+ * - [ ] 아티젝타 마지막 단서 페이지
+ * - [ ] 프로젝트 소개 페이지
+ */
 
 const HomeContainer = styled.main`
   width: 100%;
   height: 100vh;
   background-color: #000000;
-
   .progress {
     color: white;
     font-size: 10rem;
@@ -21,6 +33,7 @@ const HomeContainer = styled.main`
 export default function Home() {
   return (
     <HomeContainer>
+      <Nav />
       <Canvas
         style={{
           width: '100%',
@@ -28,7 +41,6 @@ export default function Home() {
           backgroundColor: '#000000',
         }}
       >
-        <Loader />
         <OrbitControls
           makeDefault
           target={[0, 0, 0]}
@@ -36,17 +48,14 @@ export default function Home() {
         />
         <ambientLight />
         <HomeModel />
-        <EffectComposer>
-          <Glitch
-            delay={[1.5, 3.5]} // min and max glitch delay
-            duration={[0.5, 1]} // min and max glitch duration
-            strength={[1, 2]} // min and max glitch strength
-            mode={GlitchMode.SPORADIC} // glitch mode
-            active // turn on/off the effect (switches between "mode" prop and GlitchMode.DISABLED)
-            ratio={0} // Threshold for strong glitches, 0 - no weak glitches, 1 - no strong glitches.
-            dtSize={5}
-          />
-        </EffectComposer>
+        {Object.keys(wifis).map((idx, wifi) => {
+          return (
+            <Wifi
+              key={idx}
+              pos={wifis[wifi].model.pos}
+            />
+          );
+        })}
       </Canvas>
     </HomeContainer>
   );
