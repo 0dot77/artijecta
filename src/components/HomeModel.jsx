@@ -8,6 +8,6 @@ export default function HomeModel() {
     <primitive
       object={gltf.scene}
       scale={[2.5, 2.5, 2.5]}
-    ></primitive>
+    />
   );
 }

@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const NavContainer = styled.div`
   position: absolute;
+  margin-right: 1rem;
   z-index: 1000;
   right: 0;
   top: 0;
@@ -16,9 +17,11 @@ const NavContainer = styled.div`
   align-items: center;
   width: 12.5rem;
   img {
-    width: 100%;
+    align-self: flex-end;
+    right: 0;
+    width: 50%;
     &:hover {
-      filter: drop-shadow(8px 8px 4px #faea10);
+      filter: drop-shadow(3px 4px 4px #faea10);
     }
     margin-bottom: 1rem;
   }
@@ -29,11 +32,11 @@ const MenuContainer = styled.div`
   font-family: DOSGothic;
   color: white;
   font-size: 1rem;
-  text-align: center;
+  text-align: right;
   p {
     margin-bottom: 1rem;
     &:hover {
-      color: hotpink;
+      color: rgba(255, 0, 240, 1);
       cursor: pointer;
     }
   }
@@ -155,7 +158,14 @@ const Nav = () => {
             >
               아티젝타 마지막 단서 보기
             </p>
-            <p className="proect">본 프로젝트에 대해</p>
+            <p
+              className="proect"
+              onClick={() => {
+                nav('/description');
+              }}
+            >
+              본 프로젝트에 대해
+            </p>
           </MenuContainer>
         ) : null}
       </NavContainer>

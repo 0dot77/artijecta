@@ -11,12 +11,12 @@ import Nav from '../components/Nav';
 
 /**
  * - [x] 와이파이 위치 점 찍기 (10개)
- * - [ ] 위치 점 클릭하면 팝업되는 창 만들고 정보 입력하기
+ * - [x] 위치 점 클릭하면 팝업되는 창 만들고 정보 입력하기
  * - [x] 네비게이션 만들기
- * - [ ] 앱 연결 페이지
+ * - [x] 앱 연결 페이지
  * - [ ] 스프레드 시트 변환하는 방법? 알아보고 페이지로 만들기
  * - [ ] 아티젝타 마지막 단서 페이지
- * - [ ] 프로젝트 소개 페이지
+ * - [x] 프로젝트 소개 페이지
  */
 
 const HomeContainer = styled.main`
@@ -35,6 +35,7 @@ export default function Home() {
     <HomeContainer>
       <Nav />
       <Canvas
+        linear
         style={{
           width: '100%',
           heigth: '100%',
@@ -46,13 +47,13 @@ export default function Home() {
           target={[0, 0, 0]}
           enableDamping={true}
         />
-        <ambientLight />
         <HomeModel />
         {Object.keys(wifis).map((idx, wifi) => {
           return (
             <Wifi
               key={idx}
               pos={wifis[wifi].model.pos}
+              idx={wifi}
             />
           );
         })}

@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoadingPage from './pages/LoadingPage';
 import Home from './pages/Home';
+import AllPublic from './pages/AllPublic';
+import Description from './pages/Description';
+
 export default function Router() {
   return (
     <BrowserRouter>
@@ -15,7 +18,11 @@ export default function Router() {
         />
         <Route
           path="/all-public"
-          element={null}
+          element={<AllPublic />}
+        />
+        <Route
+          path="/description"
+          element={<Description />}
         />
       </Routes>
     </BrowserRouter>
