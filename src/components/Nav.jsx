@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import menuIcon from '../assets/model/menu.gif';
-import qrBackground from '../assets/images/qr-1.png';
-import qr from '../assets/images/qr-2.png';
+import qr from '../assets/images/qr.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,8 +19,9 @@ const NavContainer = styled.div`
     align-self: flex-end;
     right: 0;
     width: 50%;
+    filter: ${(props) => (props.clicked ? `drop-shadow(3px 4px 4px rgba(255, 0, 240, 1))` : null)};
     &:hover {
-      filter: drop-shadow(3px 4px 4px #faea10);
+      filter: drop-shadow(3px 4px 4px rgba(255, 0, 240, 1));
     }
     margin-bottom: 1rem;
   }
@@ -35,10 +35,13 @@ const MenuContainer = styled.div`
   text-align: right;
   p {
     margin-bottom: 1rem;
+    background-color: #000000;
+    text-decoration: underline;
     &:hover {
       color: rgba(255, 0, 240, 1);
       cursor: pointer;
     }
+    padding-left: 1rem;
   }
 
   .qr {
@@ -126,7 +129,7 @@ const Nav = () => {
   const nav = useNavigate();
   return (
     <>
-      <NavContainer>
+      <NavContainer clicked={clicked}>
         <img
           src={menuIcon}
           alt="icon"
@@ -134,11 +137,14 @@ const Nav = () => {
         />
         {clicked ? (
           <MenuContainer clicked={clicked}>
+            <p>아티젝타 서식지 탐색</p>
             <p
               className="qr"
-              onClick={() => setQrClicked((prev) => !prev)}
+              onClick={() => {
+                setQrClicked((prev) => !prev);
+              }}
             >
-              Artijecta Caputre App
+              APP 다운받기
             </p>
             <p
               className="public"
@@ -150,7 +156,7 @@ const Nav = () => {
               className="last"
               onClick={() => setClueClicked((prev) => !prev)}
             >
-              아티젝타 마지막 단서 보기
+              마지막 단서 보기
             </p>
             <p
               className="proect"
@@ -166,16 +172,7 @@ const Nav = () => {
       {qrClicked ? (
         <QrContainer onClick={() => setQrClicked(false)}>
           <ImageBox>
-            <img
-              className="back"
-              src={qrBackground}
-              alt="qrBackgroundImage"
-            />
-            <img
-              className="qr"
-              src={qr}
-              alt="qr"
-            />
+            <img src={qr} />
           </ImageBox>
         </QrContainer>
       ) : null}

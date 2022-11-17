@@ -4,14 +4,6 @@ import artijecta from '../assets/model/icon_artialism.png';
 import useMousePosition from '../hooks/useMousePosition';
 import { useRef } from 'react';
 import myArtijecta from '../assets/texture/artijecta-gif-version.gif?url';
-import { useEffect } from 'react';
-
-/*
-- [x] 로고 (누르면 홈으로 이동)
-- [x] 마우스 움직일 때마다 랜덤한 정보 출력
-    - [ ] 함께 나타낼 정보 작업하기
-- [x] 로고 뒤에 내 작업 (작업을 텍스쳐로 입히고...)
-*/
 
 const Layout = styled.main`
   width: 100%;
@@ -23,9 +15,8 @@ const BackgroundContainer = styled.div`
   height: 100%;
   position: absolute;
   z-index: 0;
-  background-image: url(${myArtijecta});
-  /* background-repeat: no-repeat; */
   background-position: center;
+  background: #000000;
   opacity: 0.95;
 `;
 
@@ -49,7 +40,7 @@ const IconContainer = styled.div`
     animation: ${IconAnimi} 10s linear infinite;
     width: 10rem;
     &:hover {
-      filter: drop-shadow(3px 4px 4px #faea10);
+      width: 11rem;
     }
   }
 `;
@@ -82,6 +73,7 @@ const LoadingPage = () => {
   return (
     <Layout>
       <BackgroundContainer />
+      {/*
       <WithMouseContainer
         ref={mouse}
         mousePosition={mousePosition}
@@ -94,6 +86,7 @@ const LoadingPage = () => {
           </p>
         </MouseWithTextContainer>
       </WithMouseContainer>
+  */}
       <IconContainer>
         <img
           src={artijecta}

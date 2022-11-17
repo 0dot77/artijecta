@@ -10,14 +10,14 @@ const WifiDataContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
 `;
 
 const DataContainer = styled.div`
   width: 100%;
-  height: 50%;
   padding-left: 2rem;
+  padding-top: 2rem;
   p {
     margin-bottom: 0.1rem;
   }
@@ -25,12 +25,13 @@ const DataContainer = styled.div`
 
 const Button = styled.button`
   width: 80%;
-  height: 20%;
+  height: 15%;
   background-color: #000000;
   border: none;
   color: white;
   font-size: 1.25rem;
   font-family: DOSGothic;
+  margin-bottom: 1rem;
 `;
 
 const Cancel = styled.div`
@@ -42,7 +43,7 @@ const Cancel = styled.div`
   background: black;
 `;
 
-const Wifi = ({ pos, idx = 0 }) => {
+const Wifi = ({ pos, idx = 0, sc }) => {
   const [clicked, setClicked] = useState(false);
   const circleRef = useRef();
   // console.log(circleRef);
@@ -55,7 +56,7 @@ const Wifi = ({ pos, idx = 0 }) => {
       <Sphere
         ref={circleRef}
         position={pos}
-        scale={[0.1, 0.1, 0.1]}
+        scale={sc}
         onClick={() => setClicked((prev) => !prev)}
       >
         <meshBasicMaterial color="rgba(255, 0, 240, 1)" />
@@ -65,7 +66,7 @@ const Wifi = ({ pos, idx = 0 }) => {
           position={pos}
           style={{
             width: '20rem',
-            height: '20rem',
+            height: '18rem',
             backgroundColor: 'rgba(255, 0, 240, 1)',
             marginTop: '2rem',
             fontFamily: 'DOSGothic',

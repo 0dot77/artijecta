@@ -5,15 +5,7 @@ import Wifi from '../components/Wifi';
 import wifis from '../data/wifis';
 import Nav from '../components/Nav';
 import HomeModel from '../components/HomeModel';
-/**
- * - [x] 와이파이 위치 점 찍기 (10개)
- * - [x] 위치 점 클릭하면 팝업되는 창 만들고 정보 입력하기
- * - [x] 네비게이션 만들기
- * - [x] 앱 연결 페이지
- * - [ ] 스프레드 시트 변환하는 방법? 알아보고 페이지로 만들기
- * - [ ] 아티젝타 마지막 단서 페이지
- * - [x] 프로젝트 소개 페이지
- */
+import { Bloom, DepthOfField, EffectComposer, Noise, Vignette } from '@react-three/postprocessing';
 
 const HomeContainer = styled.main`
   width: 100%;
@@ -38,6 +30,24 @@ export default function Home() {
           backgroundColor: '#000000',
         }}
       >
+        <EffectComposer>
+          <DepthOfField
+            focusDistance={0}
+            focalLength={0.02}
+            bokehScale={1}
+            height={480}
+          />
+          <Bloom
+            luminanceThreshold={0.25}
+            luminanceSmoothing={1}
+            height={300}
+          />
+          <Vignette
+            eskil={false}
+            offset={0.2}
+            darkness={1.1}
+          />
+        </EffectComposer>
         <OrbitControls
           makeDefault
           target={[0, 0, 0]}
@@ -49,6 +59,7 @@ export default function Home() {
             <Wifi
               key={idx}
               pos={wifis[wifi].model.pos}
+              sc={wifis[wifi].model.sc}
               idx={wifi}
             />
           );
