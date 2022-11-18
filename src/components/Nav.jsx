@@ -3,6 +3,7 @@ import menuIcon from '../assets/model/menu.gif';
 import qr from '../assets/images/qr.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import HomeHoverText from './HomeHoverText';
 
 const NavContainer = styled.div`
   position: absolute;
@@ -44,8 +45,13 @@ const MenuContainer = styled.div`
     padding-left: 1rem;
   }
 
+  .live {
+    color: ${(props) => (props.liveClicked ? 'rgba(255, 0, 240, 1)' : 'white')};
+  }
+
   .qr {
     opacity: ${(props) => (props.clicked ? 1 : 0)};
+    color: ${(props) => (props.qrClicked ? 'rgba(255, 0, 240, 1)' : 'white')};
   }
   transition: opacity 2s linear forward;
 `;
@@ -124,8 +130,16 @@ const InputBox = styled.div`
 
 const Nav = () => {
   const [clicked, setClicked] = useState(false);
+  const [liveClicked, setLiveClicked] = useState(true);
   const [qrClicked, setQrClicked] = useState(false);
   const [clueClicked, setClueClicked] = useState(false);
+
+  const [liveHovered, setLiveHovered] = useState(false);
+  const [qrHovered, setQrHovered] = useState(false);
+  const [wifiHovered, setWifiHovered] = useState(false);
+  const [clueHovered, setClueHovered] = useState(false);
+  const [aboutHovered, setAboutHovered] = useState(false);
+  console.log(liveHovered);
   const nav = useNavigate();
   return (
     <>
@@ -136,12 +150,23 @@ const Nav = () => {
           onClick={() => setClicked((prev) => !prev)}
         />
         {clicked ? (
-          <MenuContainer clicked={clicked}>
-            <p>아티젝타 서식지 탐색</p>
+          <MenuContainer
+            clicked={clicked}
+            liveClicked={liveClicked}
+            qrClicked={qrClicked}
+          >
+            <HomeHoverText
+              cn={'live'}
+              onMouseEnter={() => setLiveHovered(true)}
+              onMouseLeave={() => setLiveHovered(false)}
+              isHover={liveHovered}
+            />
+            {/* <p className="live">아티젝타 서식지 탐색</p> */}
             <p
               className="qr"
               onClick={() => {
                 setQrClicked((prev) => !prev);
+                setLiveClicked(false);
               }}
             >
               APP 다운받기

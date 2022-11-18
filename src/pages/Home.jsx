@@ -5,6 +5,7 @@ import Wifi from '../components/Wifi';
 import wifis from '../data/wifis';
 import Nav from '../components/Nav';
 import HomeModel from '../components/HomeModel';
+import HomeMouse from '../components/HomeMouse';
 import { Bloom, DepthOfField, EffectComposer, Noise, Vignette } from '@react-three/postprocessing';
 
 const HomeContainer = styled.main`
@@ -22,6 +23,7 @@ export default function Home() {
   return (
     <HomeContainer>
       <Nav />
+      <HomeMouse />
       <Canvas
         linear
         style={{
@@ -30,7 +32,7 @@ export default function Home() {
           backgroundColor: '#000000',
         }}
       >
-        <EffectComposer>
+        {/* <EffectComposer>
           <DepthOfField
             focusDistance={0}
             focalLength={0.02}
@@ -47,7 +49,7 @@ export default function Home() {
             offset={0.2}
             darkness={1.1}
           />
-        </EffectComposer>
+        </EffectComposer> */}
         <OrbitControls
           makeDefault
           target={[0, 0, 0]}

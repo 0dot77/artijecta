@@ -32,6 +32,7 @@ const Button = styled.button`
   font-size: 1.25rem;
   font-family: DOSGothic;
   margin-bottom: 1rem;
+  cursor: pointer;
 `;
 
 const Cancel = styled.div`
@@ -41,6 +42,7 @@ const Cancel = styled.div`
   position: absolute;
   right: 0;
   background: black;
+  cursor: pointer;
 `;
 
 const Wifi = ({ pos, idx = 0, sc }) => {
@@ -103,7 +105,13 @@ const Wifi = ({ pos, idx = 0, sc }) => {
               <p>AP 이용량 : {wifis[idx].data.amount}</p>
               <p>공유기 IP 주소 : {wifis[idx].data.ipAddress}</p>
             </DataContainer>
-            <Button>찾아가는 길</Button>
+            <Button
+              onClick={() => {
+                window.open(wifis[idx].data.mapUrl);
+              }}
+            >
+              찾아가는 길 &#62;{' '}
+            </Button>
           </WifiDataContainer>
         </Html>
       ) : null}
