@@ -21,8 +21,4 @@ const title = {
   },
 };
 
-const HomeHoverText = ({ cn, isHover }) => {
-  return <>{isHover ? <p>{title[cn].kr}</p> : <p className={cn}>{title[cn].en}</p>}</>;
-};
-
-export default HomeHoverText;
+export default title;

@@ -29,7 +29,7 @@ const Button = styled.button`
   background-color: #000000;
   border: none;
   color: white;
-  font-size: 1.25rem;
+  font-size: ${(props) => (props.isBtnHovered ? '1rem' : '1.25rem')};
   font-family: DOSGothic;
   margin-bottom: 1rem;
   cursor: pointer;
@@ -47,8 +47,9 @@ const Cancel = styled.div`
 
 const Wifi = ({ pos, idx = 0, sc }) => {
   const [clicked, setClicked] = useState(false);
+  const [isBtnHovered, setIsBtnHovered] = useState(false);
   const circleRef = useRef();
-  // console.log(circleRef);
+
   // useFrame(() => {
   //   circleRef.current.rotation.x += 0.05;
   // });
@@ -109,8 +110,11 @@ const Wifi = ({ pos, idx = 0, sc }) => {
               onClick={() => {
                 window.open(wifis[idx].data.mapUrl);
               }}
+              onMouseEnter={() => setIsBtnHovered(true)}
+              onMouseLeave={() => setIsBtnHovered(false)}
+              isBtnHovered={isBtnHovered}
             >
-              찾아가는 길 &#62;{' '}
+              {isBtnHovered ? <span>Directions to this spot &#62;</span> : <span>찾아가는 길 &#62;</span>}
             </Button>
           </WifiDataContainer>
         </Html>
