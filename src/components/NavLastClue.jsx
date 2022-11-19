@@ -55,10 +55,8 @@ const MuiOtpInputStyled = styled(MuiOtpInput)`
 `;
 
 const VideoContainer = styled.div`
-  width: 50%;
-  height: 15rem;
+  width: 70%;
   color: white;
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,7 +83,15 @@ const NavLastClue = () => {
     <ClueContainer>
       {pass ? (
         <VideoContainer>
-          <h1>영상자리</h1>
+          <video
+            controls
+            width="100%"
+          >
+            <source
+              src="https://gdurl.com/DAFe"
+              type="video/mp4"
+            ></source>
+          </video>
         </VideoContainer>
       ) : (
         <InputFieldBox>
