@@ -7,6 +7,7 @@ import Nav from '../components/Nav';
 import HomeModel from '../components/HomeModel';
 import HomeMouse from '../components/HomeMouse';
 import { EffectComposer, DepthOfField, Bloom, Noise, Vignette } from '@react-three/postprocessing';
+import HomeSound from '../components/HomeSound';
 
 const HomeContainer = styled.main`
   width: 100%;
@@ -24,6 +25,7 @@ export default function Home() {
     <HomeContainer>
       <Nav />
       <HomeMouse />
+      <HomeSound />
       <Canvas
         linear
         gl={{
