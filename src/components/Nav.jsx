@@ -38,24 +38,14 @@ const MenuContainer = styled.div`
   padding-left: 1rem;
 
   .live {
-    color: ${(props) => (props.liveClicked ? 'rgba(255, 0, 240, 1)' : 'white')};
+    color: ${(props) =>
+      props.isMenuClicked !== null || props.isMenuClicked === 'live' ? 'white' : 'rgba(255, 0, 240, 1)'};
   }
-
-  .qr {
-    opacity: ${(props) => (props.clicked ? 1 : 0)};
-    color: ${(props) => (props.qrClicked ? 'rgba(255, 0, 240, 1)' : 'white')};
-  }
-  transition: opacity 2s linear forward;
 `;
 
 const Nav = () => {
   const [clicked, setClicked] = useState(false);
-  const [liveClicked, setLiveClicked] = useState(true);
-  const [qrClicked, setQrClicked] = useState(false);
-  const [clueClicked, setClueClicked] = useState(false);
-
   const [isMenuClicked, setIsMenuClicked] = useState(null);
-
   const nav = useNavigate();
 
   return (
@@ -69,8 +59,7 @@ const Nav = () => {
         {clicked ? (
           <MenuContainer
             clicked={clicked}
-            liveClicked={liveClicked}
-            qrClicked={qrClicked}
+            isMenuClicked={isMenuClicked}
           >
             {Object.keys(title).map((idx, perTitle) => {
               return (
@@ -85,9 +74,8 @@ const Nav = () => {
           </MenuContainer>
         ) : null}
       </NavContainer>
-      {isMenuClicked === 'live' ? null : null}
       {isMenuClicked === 'qr' ? <NavQr setIsMenuClicked={setIsMenuClicked} /> : null}
-      {isMenuClicked === 'wifi' ? null : null}
+      {isMenuClicked === 'wifi' ? nav('/all-public') : null}
       {isMenuClicked === 'clue' ? <NavLastClue setIsMenuClicked={setIsMenuClicked} /> : null}
       {isMenuClicked === 'about' ? nav('/description') : null}
     </>

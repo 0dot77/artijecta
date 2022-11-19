@@ -34,6 +34,7 @@ const HomeNavTitle = ({ origin, setIsMenuClicked, isMenuClicked }) => {
       >
         {isHover ? (
           <Menu
+            className={origin}
             isMenuClicked={isMenuClicked}
             origin={origin}
           >
@@ -41,6 +42,7 @@ const HomeNavTitle = ({ origin, setIsMenuClicked, isMenuClicked }) => {
           </Menu>
         ) : (
           <Menu
+            className={origin}
             isMenuClicked={isMenuClicked}
             origin={origin}
           >
