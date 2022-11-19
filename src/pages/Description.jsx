@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+import logo1 from '../assets/images/logo1.png';
+import logo2 from '../assets/images/logo2.png';
 
 const Layout = styled.main`
   width: 100%;
@@ -24,6 +26,15 @@ const SponsorContainer = styled.section`
   position: absolute;
   bottom: 0;
   color: white;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  img {
+    width: 12.5rem;
+  }
+  p {
+    margin-left: 1rem;
+  }
 `;
 
 const Description = () => {
@@ -60,15 +71,25 @@ const Description = () => {
           </p>
         )}
       </DescriptionContainer>
-      <SponsorContainer
-        onMouseEnter={() => setIsTextHovered('sponsor')}
-        onMouseLeave={() => setIsTextHovered(null)}
-      >
-        {isTextHovered === 'sponsor' ? (
-          <p>This project was published with the support of “2022 ARKO Art & Tech</p>
-        ) : (
-          <p>본 프로젝트는 2022년 한국문화예술위원회 예술과기술융합지원사업의 지원을 받아 제작되었습니다.</p>
-        )}
+      <SponsorContainer>
+        <img
+          src={logo2}
+          alt="logo"
+        />
+        <img
+          src={logo1}
+          alt="logo"
+        />
+        <div
+          onMouseEnter={() => setIsTextHovered('sponsor')}
+          onMouseLeave={() => setIsTextHovered(null)}
+        >
+          {isTextHovered === 'sponsor' ? (
+            <p>This project was published with the support of “2022 ARKO Art & Tech</p>
+          ) : (
+            <p>본 프로젝트는 2022년 한국문화예술위원회 예술과기술융합지원사업의 지원을 받아 제작되었습니다.</p>
+          )}
+        </div>
       </SponsorContainer>
     </Layout>
   );
