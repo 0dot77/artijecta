@@ -10,7 +10,7 @@ export default function HomeModel() {
   const ref = useRef();
   const groupRef = useRef();
   useFrame(() => {
-    groupRef.current.rotation.y += Math.PI / 2500;
+    groupRef.current.rotation.y += Math.PI / 3500;
   });
   return (
     <group ref={groupRef}>

@@ -1,5 +1,5 @@
 import { Sphere, Html } from '@react-three/drei';
-import { Suspense, useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import wifis from '../data/wifis';
 import { useRecoilState } from 'recoil';
@@ -45,6 +45,12 @@ const Cancel = styled.div`
   cursor: pointer;
 `;
 
+const HtmlWholeBackground = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+`;
+
 const HtmlBackground = styled.div`
   width: 20rem;
   height: 18rem;
@@ -56,7 +62,7 @@ const HtmlBackground = styled.div`
 const Line = styled.hr`
   width: 100%;
   border: 1px solid rgba(255, 0, 240, 1);
-  transform: rotate(-3deg);
+  transform: rotate(-4deg);
 `;
 
 const Wifi = ({ pos, idx = 0, sc }) => {
@@ -83,7 +89,7 @@ const Wifi = ({ pos, idx = 0, sc }) => {
         <Html
           position={pos}
           style={{
-            width: '40rem',
+            width: '30rem',
             height: '18rem',
             right: '1rem',
             marginTop: '1rem',
