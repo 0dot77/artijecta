@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 const HomeMouseContainer = styled.div`
   z-index: 1000;
   position: absolute;
-  bottom: 0;
+  bottom: 1rem;
   right: 45%;
   img {
     position: relative;

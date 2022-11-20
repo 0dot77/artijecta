@@ -18,7 +18,7 @@ const NavContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 12.5rem;
+  width: 15rem;
   img {
     align-self: flex-end;
     right: 0;
