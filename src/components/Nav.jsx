@@ -6,6 +6,8 @@ import HomeNavTitle from './HomeNavTitle';
 import title from '../data/title';
 import NavQr from './NavQr';
 import NavLastClue from './NavLastClue';
+import { useRecoilState } from 'recoil';
+import { clueState } from '../data/atom';
 
 const NavContainer = styled.div`
   position: absolute;
@@ -46,6 +48,7 @@ const MenuContainer = styled.div`
 const Nav = () => {
   const [clicked, setClicked] = useState(false);
   const [isMenuClicked, setIsMenuClicked] = useState(null);
+  const [, setClue] = useRecoilState(clueState);
   const nav = useNavigate();
 
   return (
@@ -68,6 +71,7 @@ const Nav = () => {
                   origin={Object.keys(title)[perTitle]}
                   setIsMenuClicked={setIsMenuClicked}
                   isMenuClicked={isMenuClicked}
+                  setClue={setClue}
                 />
               );
             })}

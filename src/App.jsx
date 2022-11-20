@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import Router from './Router';
+import { RecoilRoot } from 'recoil';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -27,10 +28,10 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <>
+    <RecoilRoot>
       <GlobalStyle />
       <Router />
-    </>
+    </RecoilRoot>
   );
 }
 

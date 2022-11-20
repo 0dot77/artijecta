@@ -13,7 +13,7 @@ const Menu = styled.p`
   }
 `;
 
-const HomeNavTitle = ({ origin, setIsMenuClicked, isMenuClicked }) => {
+const HomeNavTitle = ({ origin, setIsMenuClicked, isMenuClicked, setClue }) => {
   const [isHover, setIshovered] = useState(false);
 
   const handleMouseHover = () => {
@@ -30,6 +30,7 @@ const HomeNavTitle = ({ origin, setIsMenuClicked, isMenuClicked }) => {
         onMouseLeave={handleMouseLeave}
         onClick={() => {
           isMenuClicked ? setIsMenuClicked(null) : setIsMenuClicked(origin);
+          origin === 'clue' ? setClue(true) : null;
         }}
       >
         {isHover ? (

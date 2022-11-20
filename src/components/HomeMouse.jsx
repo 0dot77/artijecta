@@ -1,28 +1,32 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import mouse from '../assets/images/mouse.gif';
+import { useEffect } from 'react';
 
 const HomeMouseContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
   z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  position: absolute;
+  bottom: 0;
+  right: 45%;
   img {
-    margin-bottom: 2rem;
     position: relative;
     width: 5rem;
   }
 `;
 
 const HomeMouse = () => {
-  const [clicked, setClicked] = useState(false);
+  const [isTimeOvered, setIsTimeOver] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsTimeOver(true);
+    }, 23000);
+  }, []);
+
   return (
     <>
-      {clicked ? null : (
-        <HomeMouseContainer onClick={() => setClicked(true)}>
+      {isTimeOvered ? null : (
+        <HomeMouseContainer>
           <img
             src={mouse}
             alt="mouse"

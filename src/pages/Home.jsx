@@ -1,13 +1,12 @@
 import { Canvas } from '@react-three/fiber';
 import styled from 'styled-components';
 import { OrbitControls } from '@react-three/drei';
-import Wifi from '../components/Wifi';
-import wifis from '../data/wifis';
 import Nav from '../components/Nav';
 import HomeModel from '../components/HomeModel';
 import HomeMouse from '../components/HomeMouse';
 import { EffectComposer, DepthOfField, Bloom, Noise, Vignette } from '@react-three/postprocessing';
 import HomeSound from '../components/HomeSound';
+import { Suspense } from 'react';
 
 const HomeContainer = styled.main`
   width: 100%;
@@ -26,64 +25,56 @@ export default function Home() {
       <Nav />
       <HomeMouse />
       <HomeSound />
-      <Canvas
-        linear
-        gl={{
-          powerPreference: 'high-performance',
-          alpha: false,
-          antialias: false,
-          stencil: false,
-          depth: false,
-        }}
-        style={{
-          width: '100%',
-          heigth: '100%',
-          backgroundColor: '#000000',
-        }}
-      >
-        <OrbitControls
-          makeDefault
-          target={[0, 0, 0]}
-          enableDamping={true}
-        />
-        <EffectComposer
-          multisampling={8}
-          disableNormalPass={true}
+      <Suspense fallback={null}>
+        <Canvas
+          linear
+          gl={{
+            powerPreference: 'high-performance',
+            alpha: false,
+            antialias: false,
+            stencil: false,
+            depth: false,
+          }}
+          style={{
+            width: '100%',
+            heigth: '100%',
+            backgroundColor: '#000000',
+          }}
         >
-          <DepthOfField
-            focusDistance={0}
-            focalLength={0.2}
-            bokehScale={0.5}
-            height={500}
+          <OrbitControls
+            makeDefault
+            target={[0, 0, 0]}
+            enableDamping={true}
           />
-          <Bloom
-            luminanceThreshold={0.1}
-            luminanceSmoothing={0.1}
-            width={500}
-            height={500}
-            opacity={2}
-            intensity={0.05}
-            mipmapBlur
-          />
-          <Noise opacity={0.25} />
-          <Vignette
-            eskil={false}
-            offset={0.1}
-            darkness={1.1}
-          />
-        </EffectComposer>
-        <HomeModel />
-        {Object.keys(wifis).map((idx, wifi) => {
-          return (
-            <Wifi
-              key={idx}
-              pos={wifis[wifi].model.pos}
-              sc={wifis[wifi].model.sc}
-              idx={wifi}
+          <EffectComposer
+            multisampling={8}
+            disableNormalPass={true}
+          >
+            <DepthOfField
+              focusDistance={0}
+              focalLength={0.2}
+              bokehScale={0.5}
+              height={500}
             />
-          );
-        })}
-      </Canvas>
+            <Bloom
+              luminanceThreshold={0.1}
+              luminanceSmoothing={0.1}
+              width={500}
+              height={500}
+              opacity={2}
+              intensity={0.05}
+              mipmapBlur
+            />
+            <Noise opacity={0.25} />
+            <Vignette
+              eskil={false}
+              offset={0.1}
+              darkness={1.1}
+            />
+          </EffectComposer>
+          <HomeModel />
+        </Canvas>
+      </Suspense>
     </HomeContainer>
   );
 }
