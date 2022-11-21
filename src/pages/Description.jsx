@@ -12,13 +12,16 @@ const Layout = styled.main`
   align-items: center;
   font-family: DOSGothic;
   color: white;
-  line-height: 1.25;
+  line-height: 1.5;
   cursor: default;
 `;
 
 const DescriptionContainer = styled.section`
   padding: 1rem;
   width: 50%;
+  span {
+    font-size: 0.75rem;
+  }
 `;
 
 const SponsorContainer = styled.section`
@@ -27,14 +30,22 @@ const SponsorContainer = styled.section`
   bottom: 0;
   color: white;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   margin-bottom: 1rem;
+  padding: 1rem;
   img {
     width: 12.5rem;
   }
   p {
     margin-left: 1rem;
   }
+`;
+
+const CreditContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  justify-content: flex-start;
 `;
 
 const Description = () => {
@@ -60,6 +71,7 @@ const Description = () => {
           </p>
         ) : (
           <p>
+            <span>본 프로젝트는 </span>
             보이지 않지만 현재 문명 내 거대하게 몸집을 불려나가고 있는 ‘온라인 생태계’. 그 생태계에 자리잡은 소비 시스템
             속에서 인공 사물들의 데이터는 끊임없이 증식하며 그곳을 장악해 나가고 있다. 그곳에서 우리의 소비는 데이터
             증식을 일으키는 동시에, 우리의 몸이 거주하는 물질 세계로 까지 그들이 침범하게 한다. 공공 와이파이 시설이
@@ -72,6 +84,16 @@ const Description = () => {
         )}
       </DescriptionContainer>
       <SponsorContainer>
+        <CreditContainer>
+          <p>기획 및 제작 총괄 │ 박예나</p>
+          <p>디자인 │ 박예나</p>
+          <p>앱 개발 │ 정수봉(플링커)</p>
+          <p>웹 개발 │ 유태양</p>
+          <p>자문 │ 오영진, 박유진, 최선주, 홍예지</p>
+          <p>번역 │ 김한준, 강은희</p>
+          <p>제작 도움 │ 스튜디오 흰상자, 송유나, 이해련, 박성호</p>
+          <p>리뷰 │ 박준혁, 김맑음, 임재형</p>
+        </CreditContainer>
         <img
           src={logo2}
           alt="logo"
