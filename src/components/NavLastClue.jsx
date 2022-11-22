@@ -58,7 +58,8 @@ const MuiOtpInputStyled = styled(MuiOtpInput)`
 `;
 
 const VideoContainer = styled.div`
-  width: 70%;
+  width: 80%;
+  height: 50%;
   color: white;
   display: flex;
   justify-content: center;
@@ -100,15 +101,15 @@ const NavLastClue = ({ setIsMenuClicked }) => {
       />
       {pass ? (
         <VideoContainer>
-          <video
-            controls
+          <iframe
             width="100%"
-          >
-            <source
-              src="https://gdurl.com/DAFe"
-              type="video/mp4"
-            ></source>
-          </video>
+            height="100%"
+            src="https://www.youtube.com/embed/FcoHxhCAqLA?amp;autoplay=1"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </VideoContainer>
       ) : (
         <InputFieldBox>
