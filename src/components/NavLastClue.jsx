@@ -58,13 +58,14 @@ const MuiOtpInputStyled = styled(MuiOtpInput)`
 `;
 
 const VideoContainer = styled.div`
-  width: 80%;
-  height: 50%;
+  width: 80vw;
+  height: 45vw;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  z-index: 10000;
 `;
 
 const CancelContainer = styled.div`
@@ -100,7 +101,7 @@ const NavLastClue = ({ setIsMenuClicked }) => {
           <iframe
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/FcoHxhCAqLA?amp;autoplay=1"
+            src="https://www.youtube.com/embed/FcoHxhCAqLA?amp;autoplay=1?rel=0&vq=hd1080"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
