@@ -33,11 +33,24 @@ const SponsorContainer = styled.section`
   align-items: flex-end;
   margin-bottom: 1rem;
   padding: 1rem;
-  img {
-    width: 12.5rem;
-  }
   p {
+    font-size: 0.75rem;
     margin-left: 1rem;
+  }
+`;
+
+const SponsorImageContainer = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  margin: 0 0.5rem 0 2rem;
+  img {
+    width: 10rem;
+    margin-right: 1rem;
+  }
+
+  img:nth-child(2) {
+    margin-bottom: 0.5rem;
   }
 `;
 
@@ -46,6 +59,11 @@ const CreditContainer = styled.div`
   flex-direction: column;
   font-size: 0.75rem;
   justify-content: flex-start;
+  margin-bottom: 0.5rem;
+`;
+
+const MakingDescription = styled.div`
+  margin-bottom: 0.5rem;
 `;
 
 const Description = () => {
@@ -94,24 +112,26 @@ const Description = () => {
           <p>제작 도움 │ 스튜디오 흰상자, 송유나, 이해련, 박성호</p>
           <p>리뷰 │ 박준혁, 김맑음, 임재형</p>
         </CreditContainer>
-        <img
-          src={logo2}
-          alt="logo"
-        />
-        <img
-          src={logo1}
-          alt="logo"
-        />
-        <div
+        <SponsorImageContainer>
+          <img
+            src={logo2}
+            alt="logo"
+          />
+          <img
+            src={logo1}
+            alt="logo"
+          />
+        </SponsorImageContainer>
+        <MakingDescription
           onMouseEnter={() => setIsTextHovered('sponsor')}
           onMouseLeave={() => setIsTextHovered(null)}
         >
           {isTextHovered === 'sponsor' ? (
             <p>This project was published with the support of “2022 ARKO Art & Tech</p>
           ) : (
-            <p>본 프로젝트는 2022년 한국문화예술위원회 예술과기술융합지원사업의 지원을 받아 제작되었습니다.</p>
+            <p>※ 본 프로젝트는 2022년 한국문화예술위원회 예술과기술융합지원사업의 지원을 받아 제작되었습니다.</p>
           )}
-        </div>
+        </MakingDescription>
       </SponsorContainer>
     </Layout>
   );

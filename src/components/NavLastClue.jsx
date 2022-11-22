@@ -74,10 +74,6 @@ const CancelContainer = styled.div`
   z-index: 1000;
 `;
 
-/*
-- 번호를 입력해야하기 때문에, 따로 off를 할 수 있는 버튼이 있으면 좋을 것 같다.
-*/
-
 const NavLastClue = ({ setIsMenuClicked }) => {
   const [otp, setOtp] = useState('');
   const [pass, setPass] = useState(false);
