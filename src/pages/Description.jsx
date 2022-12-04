@@ -102,15 +102,33 @@ const Description = () => {
         )}
       </DescriptionContainer>
       <SponsorContainer>
-        <CreditContainer>
-          <p>기획 및 제작 총괄 │ 박예나</p>
-          <p>디자인 │ 박예나</p>
-          <p>앱 개발 │ 정수봉(플링커)</p>
-          <p>웹 개발 │ 유태양</p>
-          <p>자문 │ 오영진, 박유진, 최선주, 홍예지</p>
-          <p>번역 │ 김한준, 강은희</p>
-          <p>제작 도움 │ 스튜디오 흰상자, 송유나, 이해련, 박성호</p>
-          <p>리뷰 │ 박준혁, 김맑음, 임재형</p>
+        <CreditContainer
+          onMouseEnter={() => setIsTextHovered('credit')}
+          onMouseLeave={() => setIsTextHovered(null)}
+        >
+          {isTextHovered === 'credit' ? (
+            <>
+              <p>Project manage │ Yena Park</p>
+              <p>Design │ Yena Park</p>
+              <p>App development │ Subong Jung(Plinqer)</p>
+              <p>Web development │ Taeyang Yoo</p>
+              <p>Consultation │ Youngjin Oj, Eugene Park, Sunju Choi, Yeji Hong</p>
+              <p>Translation │ Hanjun Kim</p>
+              <p>Production support │ Studio Huinsangja, Yuna Song, Haeryun Lee, Sungho Park</p>
+              <p>Review │ Malgeum Kim, Jaehyoung Im, Junhyeok Park</p>
+            </>
+          ) : (
+            <>
+              <p>기획 및 제작 총괄 │ 박예나</p>
+              <p>디자인 │ 박예나</p>
+              <p>앱 개발 │ 정수봉(플링커)</p>
+              <p>웹 개발 │ 유태양</p>
+              <p>자문 │ 오영진, 박유진, 최선주, 홍예지</p>
+              <p>번역 │ 김한준</p>
+              <p>제작 도움 │ 스튜디오 흰상자, 송유나, 이해련, 박성호</p>
+              <p>리뷰 │ 박준혁, 김맑음, 임재형</p>
+            </>
+          )}
         </CreditContainer>
         <SponsorImageContainer>
           <img
@@ -127,7 +145,7 @@ const Description = () => {
           onMouseLeave={() => setIsTextHovered(null)}
         >
           {isTextHovered === 'sponsor' ? (
-            <p>This project was published with the support of “2022 ARKO Art & Tech</p>
+            <p>※ This project was published with the support of “2022 ARKO Art & Tech"</p>
           ) : (
             <p>※ 본 프로젝트는 2022년 한국문화예술위원회 예술과기술융합지원사업의 지원을 받아 제작되었습니다.</p>
           )}

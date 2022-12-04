@@ -1,6 +1,8 @@
-import { useState, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import styled from 'styled-components';
 import mainSound from '../assets/sound/sound.mp3';
+import { soundState } from '../data/atom';
+import { useRecoilState } from 'recoil';
 
 const SoundContainer = styled.div`
   position: absolute;
@@ -11,8 +13,17 @@ const SoundContainer = styled.div`
   width: 2.5rem;
 `;
 const HomeSound = () => {
-  const [soundClicked, setSoundClicked] = useState(false);
+  const [soundClicked, setSoundClicked] = useRecoilState(soundState);
   const audio = useMemo(() => new Audio(mainSound), [mainSound]);
+
+  useEffect(() => {
+    if (soundClicked) {
+      audio.play();
+      audio.loop = true;
+    } else {
+      audio.pause();
+    }
+  }, [soundClicked]);
 
   return (
     <SoundContainer onClick={() => setSoundClicked((prev) => !prev)}>

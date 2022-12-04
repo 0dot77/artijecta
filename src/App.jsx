@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import Router from './Router';
 import { RecoilRoot } from 'recoil';
 
@@ -26,11 +27,21 @@ const GlobalStyle = createGlobalStyle`
 }
 `;
 
+const Copyright = styled.div`
+  position: absolute;
+  color: gray;
+  bottom: 0;
+  right: 0;
+  margin: 0.5rem;
+  font-size: 0.75rem;
+`;
+
 function App() {
   return (
     <RecoilRoot>
       <GlobalStyle />
       <Router />
+      <Copyright>© Yena Park Inc.</Copyright>
     </RecoilRoot>
   );
 }

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import title from '../data/title';
 
 const Menu = styled.p`
+  width: max-content;
+
   margin-bottom: 1rem;
   background-color: #000000;
   text-decoration: underline;

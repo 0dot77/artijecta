@@ -4,9 +4,10 @@ import { OrbitControls } from '@react-three/drei';
 import Nav from '../components/Nav';
 import HomeModel from '../components/HomeModel';
 import HomeMouse from '../components/HomeMouse';
-import { EffectComposer, DepthOfField, Bloom, Noise, Vignette } from '@react-three/postprocessing';
+import { EffectComposer, DepthOfField, Bloom, Noise, Vignette, Glitch } from '@react-three/postprocessing';
 import HomeSound from '../components/HomeSound';
 import { Suspense } from 'react';
+import { GlitchMode } from 'postprocessing';
 
 const HomeContainer = styled.main`
   width: 100%;
@@ -50,6 +51,16 @@ export default function Home() {
             multisampling={8}
             disableNormalPass={true}
           >
+            <Glitch
+              delay={[1.5, 3.5]}
+              duration={[0.5, 1]}
+              strength={[1, 2]}
+              mode={GlitchMode.SPORADIC}
+              active
+              ratio={0}
+              dtSize={5}
+            />
+
             <DepthOfField
               focusDistance={0}
               focalLength={0.2}

@@ -4,4 +4,9 @@ const clueState = atom({
   default: false,
 });
 
-export { clueState };
+const soundState = atom({
+  key: 'soundState',
+  default: false,
+});
+
+export { clueState, soundState };

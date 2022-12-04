@@ -38,6 +38,9 @@ const MenuContainer = styled.div`
   font-size: 1rem;
   text-align: right;
   padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 
   .live {
     color: ${(props) =>

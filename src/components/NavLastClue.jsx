@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { MuiOtpInput } from 'mui-one-time-password-input';
 import { useRecoilState } from 'recoil';
-import { clueState } from '../data/atom';
+import { clueState, soundState } from '../data/atom';
 
 const ClueContainer = styled.div`
   position: absolute;
@@ -79,6 +79,7 @@ const NavLastClue = ({ setIsMenuClicked }) => {
   const [otp, setOtp] = useState('');
   const [pass, setPass] = useState(false);
   const [, setIsClue] = useRecoilState(clueState);
+  const [, setSoundState] = useRecoilState(soundState);
 
   const handleChange = (value) => {
     setOtp(value);
@@ -86,6 +87,9 @@ const NavLastClue = ({ setIsMenuClicked }) => {
   const handleComplete = (newValue) => {
     if (newValue === 'AJ10WFS8EN') {
       setPass(true);
+      if (soundState) {
+        setSoundState(false);
+      }
     }
   };
   return (
