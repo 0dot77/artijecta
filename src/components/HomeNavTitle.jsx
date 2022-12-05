@@ -4,7 +4,6 @@ import title from '../data/title';
 
 const Menu = styled.p`
   width: max-content;
-
   margin-bottom: 1rem;
   background-color: #000000;
   text-decoration: underline;
@@ -32,7 +31,7 @@ const HomeNavTitle = ({ origin, setIsMenuClicked, isMenuClicked, setClue }) => {
         onMouseLeave={handleMouseLeave}
         onClick={() => {
           isMenuClicked ? setIsMenuClicked(null) : setIsMenuClicked(origin);
-          origin === 'clue' ? setClue(true) : null;
+          origin === 'clue' || 'qr' ? setClue(true) : null;
         }}
       >
         {isHover ? (

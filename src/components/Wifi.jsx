@@ -38,17 +38,12 @@ const Button = styled.button`
 const Cancel = styled.div`
   width: 1.5rem;
   height: 1.5rem;
-  margin: 0.5rem;
+  margin-left: 17.5rem;
+  margin-top: 1rem;
   position: absolute;
-  left: 17rem;
   background: black;
   cursor: pointer;
-`;
-
-const HtmlWholeBackground = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
+  /* left: 17.5rem; */
 `;
 
 const HtmlBackground = styled.div`
@@ -71,7 +66,6 @@ const Wifi = ({ pos, idx = 0, sc }) => {
   const [isClue, setIsClue] = useRecoilState(clueState);
   const circleRef = useRef();
   const group = useRef();
-
   return (
     <group ref={group}>
       <Sphere

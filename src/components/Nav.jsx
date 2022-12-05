@@ -42,7 +42,6 @@ const MenuContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
   .live {
     color: ${(props) =>
       props.isMenuClicked !== null || props.isMenuClicked === 'live' ? 'white' : 'rgba(255, 0, 240, 1)'};

@@ -1,5 +1,7 @@
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import qr from '../assets/images/qr.png';
+import { clueState } from '../data/atom';
 
 const QrContainer = styled.div`
   width: 100%;
@@ -28,10 +30,12 @@ const ImageBox = styled.div`
 `;
 
 const NavQr = ({ setIsMenuClicked }) => {
+  const [, setClueState] = useRecoilState(clueState);
   return (
     <QrContainer
       onClick={() => {
         setIsMenuClicked(null);
+        setClueState(false);
       }}
     >
       <ImageBox>

@@ -96,7 +96,7 @@ const NavLastClue = ({ setIsMenuClicked }) => {
     <ClueContainer>
       <CancelContainer
         onClick={() => {
-          setIsMenuClicked(false);
+          setIsMenuClicked(null);
           setIsClue(false);
         }}
       />
