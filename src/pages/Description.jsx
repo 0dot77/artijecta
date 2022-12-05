@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import logo1 from '../assets/images/logo1.png';
 import logo2 from '../assets/images/logo2.png';
 
@@ -68,7 +68,6 @@ const MakingDescription = styled.div`
 
 const Description = () => {
   const [isTextHovered, setIsTextHovered] = useState(null);
-
   return (
     <Layout>
       <DescriptionContainer

@@ -8,6 +8,7 @@ import NavQr from './NavQr';
 import NavLastClue from './NavLastClue';
 import { useRecoilState } from 'recoil';
 import { clueState } from '../data/atom';
+import { soundState } from '../data/atom';
 
 const NavContainer = styled.div`
   position: absolute;
@@ -51,8 +52,14 @@ const MenuContainer = styled.div`
 const Nav = () => {
   const [clicked, setClicked] = useState(false);
   const [isMenuClicked, setIsMenuClicked] = useState(null);
-  const [, setClue] = useRecoilState(clueState);
+  const [clue, setClue] = useRecoilState(clueState);
+  const [sound, setSoundState] = useRecoilState(soundState);
   const nav = useNavigate();
+
+  const moveToOtherPage = (page) => {
+    nav(page);
+    setSoundState(false);
+  };
 
   return (
     <>
@@ -82,9 +89,9 @@ const Nav = () => {
         ) : null}
       </NavContainer>
       {isMenuClicked === 'qr' ? <NavQr setIsMenuClicked={setIsMenuClicked} /> : null}
-      {isMenuClicked === 'wifi' ? nav('/all-public') : null}
+      {isMenuClicked === 'wifi' ? moveToOtherPage('/all-public') : null}
       {isMenuClicked === 'clue' ? <NavLastClue setIsMenuClicked={setIsMenuClicked} /> : null}
-      {isMenuClicked === 'about' ? nav('/description') : null}
+      {isMenuClicked === 'about' ? moveToOtherPage('/description') : null}
     </>
   );
 };
